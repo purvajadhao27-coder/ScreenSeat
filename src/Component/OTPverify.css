@@ -1,0 +1,409 @@
+
+
+form:has(.otp-container) {
+    width: 100%;
+    max-width: 460px;
+    margin: 65px auto;
+    padding: 38px 32px;
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 45, 70, 0.12),
+            transparent 45%
+        ),
+        linear-gradient(145deg, #281116, #0c080a 75%);
+
+    border: 1px solid rgba(255, 196, 95, 0.8);
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 0 #3b1018,
+        0 22px 45px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(255, 177, 55, 0.1);
+
+    animation: otpCardAppear 0.65s ease;
+    box-sizing: border-box;
+}
+
+/* Ticket-style inner border */
+form:has(.otp-container)::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px dashed rgba(255, 202, 115, 0.25);
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+form:has(.otp-container) > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Email information */
+form:has(.otp-container) p {
+    margin: 0 0 28px;
+    color: #d7c9ca;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+#email {
+    display: block;
+    margin-top: 8px;
+    color: #ffd47a;
+    font-size: 14px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* Six OTP boxes */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0 32px;
+}
+
+.otp-container input {
+    width: 48px;
+    height: 55px;
+    min-width: 0;
+    padding: 5px;
+
+    color: #ffe1a0;
+    background: linear-gradient(145deg, #1c1114, #090708);
+
+    border: 1px solid rgba(255, 190, 83, 0.65);
+    border-radius: 11px;
+    outline: none;
+
+    text-align: center;
+    font-size: 23px;
+    font-weight: 800;
+    caret-color: #ff4057;
+
+    box-shadow:
+        inset 0 3px 8px rgba(0, 0, 0, 0.5),
+        0 4px 0 #080506;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* OTP box focus effect */
+.otp-container input:focus {
+    border-color: #ff4057;
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 64, 87, 0.12),
+        0 0 20px rgba(255, 64, 87, 0.25),
+        0 5px 0 #650013;
+}
+
+/* Verify button */
+.verify-btn {
+    width: 100%;
+    min-height: 53px;
+    padding: 14px 20px;
+
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff5367, #d0002b 75%);
+
+    border: 1px solid #ff7886;
+    border-radius: 13px;
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 0 #710016,
+        0 12px 25px rgba(255, 0, 45, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+/* Shiny hover effect */
+.verify-btn:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.1);
+
+    box-shadow:
+        0 10px 0 #710016,
+        0 17px 30px rgba(255, 0, 45, 0.32);
+}
+
+.verify-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #710016;
+}
+
+.verify-btn:focus-visible {
+    outline: 2px solid #ffd47a;
+    outline-offset: 5px;
+}
+
+/* Entrance animation */
+@keyframes otpCardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Tablet and mobile */
+@media (max-width: 520px) {
+    form:has(.otp-container) {
+        width: calc(100% - 32px);
+        margin: 40px auto;
+        padding: 32px 20px;
+    }
+
+    .otp-container {
+        gap: 7px;
+    }
+
+    .otp-container input {
+        width: 42px;
+        height: 50px;
+        font-size: 21px;
+    }
+
+    form:has(.otp-container) p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    form:has(.otp-container) {
+        padding: 28px 15px;
+    }
+
+    .otp-container {
+        gap: 5px;
+    }
+
+    .otp-container input {
+        width: 37px;
+        height: 46px;
+        font-size: 19px;
+    }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    form:has(.otp-container),
+    .otp-container input,
+    .verify-btn {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* OTP page - cinematic Sign In style */
+.otp-page {
+    position: relative;
+    isolation: isolate;
+    min-height: 85vh;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(210, 0, 50, 0.24), transparent 42%),
+        radial-gradient(ellipse at 85% 80%, rgba(190, 135, 45, 0.13), transparent 38%),
+        linear-gradient(135deg, #08080d, #210812 50%, #09090e);
+    color: #fff;
+}
+
+.otp-card {
+    background: linear-gradient(145deg, #24121c, #100d14 75%);
+    border: 1px solid rgba(231, 180, 86, 0.45);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.65),
+        0 0 30px rgba(229, 9, 54, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Shiny OTP boxes */
+.otp-container input {
+    position: relative;
+    background: linear-gradient(145deg, #32131f, #100d15);
+    border: 1px solid #75404c;
+    border-radius: 12px;
+    color: #ffd16f;
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s ease;
+}
+
+.otp-container input:hover {
+    border-color: #e7b456;
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(231, 180, 86, 0.2);
+}
+
+.otp-container input:focus {
+    outline: none;
+    border-color: #ffca69;
+    background: linear-gradient(145deg, #541526, #21101b);
+    box-shadow:
+        0 0 0 3px rgba(255, 190, 75, 0.12),
+        0 0 22px rgba(229, 9, 54, 0.4);
+    transform: translateY(-4px) scale(1.04);
+}
+
+/* Small shine animation when OTP boxes are filled */
+.otp-container input:not(:placeholder-shown) {
+    text-shadow: 0 0 10px rgba(255, 209, 111, 0.4);
+}
+
+.verify-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(110deg, #a9002b, #f21d46, #a9002b);
+    background-size: 200% 100%;
+    border: 1px solid #ff7286;
+    box-shadow:
+        0 8px 25px rgba(229, 9, 54, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.verify-btn:hover:not(:disabled) {
+    background-position: 100% 0;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(229, 9, 54, 0.45);
+}
+
+/* Popup matching Sign In theme */
+.otp-popup-overlay {
+    background: rgba(3, 3, 8, 0.82);
+    backdrop-filter: blur(10px);
+}
+
+.otp-popup {
+    background: linear-gradient(145deg, #30121f, #100d15);
+    border: 1px solid rgba(231, 180, 86, 0.55);
+    border-radius: 22px;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(229, 9, 54, 0.2);
+}
+
+.popup-btn {
+    background: linear-gradient(110deg, #b6002d, #f21d46, #b6002d);
+    border: 1px solid #ff7286;
+    box-shadow: 0 8px 22px rgba(229, 9, 54, 0.3);
+}
+
+.popup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(229, 9, 54, 0.4);
+}
+
+/* Remove white background from OTP page */
+.otp-page {
+    width: 100%;
+    min-height: 85vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 45px 20px;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(190, 0, 45, 0.28), transparent 45%),
+        radial-gradient(ellipse at 85% 85%, rgba(190, 135, 45, 0.14), transparent 40%),
+        linear-gradient(135deg, #08080d, #210812 50%, #09090e) !important;
+}
+
+.otp-card {
+    width: 100%;
+    max-width: 470px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #24121c, #100d14) !important;
+    border: 1px solid #c99b50;
+    border-radius: 22px;
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55);
+}
+
+
+.resend-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 11px 22px;
+    border: 1px solid #e8b85e;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #24101b, #8e0029, #c5103d);
+    color: #ffd47c;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(229, 9, 54, 0.25);
+    transition: all 0.3s ease;
+}
+
+.resend-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: left 0.6s ease;
+}
+
+.resend-btn:hover::before {
+    left: 150%;
+}
+
+.resend-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(229, 9, 54, 0.4),
+                0 0 15px rgba(232, 184, 94, 0.2);
+}
+
+.resend-btn:active {
+    transform: scale(0.97);
+}
+
+.resend-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+// BUTTON DISTANCE
+.verify-btn {
+    margin-bottom: 15px;
+}
+
+.resend-btn {
+    margin-top: 15px;
+}

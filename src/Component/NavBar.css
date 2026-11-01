@@ -1,0 +1,474 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.bms-header {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(110deg, #100b0d, #211216, #0b0b11);
+    border-bottom: 1px solid rgba(255, 194, 85, 0.55);
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.45),
+        0 2px 15px rgba(230, 57, 70, 0.12);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main top bar */
+.bms-topbar {
+    min-height: 78px;
+    max-width: 1400px;
+    margin: auto;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* Golden ScreenSeat logo */
+.bms-logo {
+    flex-shrink: 0;
+    color: #fff2d1;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    text-shadow: 0 0 15px rgba(255, 194, 85, 0.18);
+    transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.bms-logo span {
+    color: #ff4054;
+    text-shadow: 0 0 12px rgba(255, 64, 84, 0.5);
+}
+
+.bms-logo:hover {
+    transform: scale(1.04);
+    text-shadow: 0 0 18px rgba(255, 194, 85, 0.5);
+}
+
+/* Search bar */
+.bms-search {
+    flex: 1;
+    max-width: 490px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    min-height: 44px;
+    border: 1px solid #514044;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.055);
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.bms-search:focus-within {
+    border-color: #e7b956;
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 0 16px rgba(255, 194, 85, 0.13);
+}
+
+.search-icon {
+    color: #ffcc70;
+    font-size: 26px;
+    line-height: 1;
+}
+
+.bms-search input {
+    width: 100%;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+}
+
+.bms-search input::placeholder {
+    color: #b9aeb1;
+}
+
+/* City and sign-in actions */
+.bms-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.bms-city {
+    max-width: 145px;
+    padding: 10px 12px;
+    border: 1px solid #66513b;
+    border-radius: 8px;
+    outline: none;
+    background: #21171b;
+    color: #ffe5b0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.bms-city option {
+    background: #171116;
+    color: #fff;
+}
+
+/* Glossy Sign In button */
+.bms-signin {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 23px;
+    overflow: hidden;
+    border: 1px solid #ffd675;
+    border-radius: 9px;
+    background: linear-gradient(120deg, #a81024, #ff354b, #c4112c);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 43, 65, 0.2);
+    transition: transform 0.25s, box-shadow 0.25s, filter 0.25s;
+}
+
+.bms-signin:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.15);
+    box-shadow:
+        0 6px 22px rgba(255, 43, 65, 0.4),
+        0 0 12px rgba(255, 214, 117, 0.2);
+}
+
+/* Hamburger button */
+.bms-menu-btn {
+    display: none;
+    width: 42px;
+    height: 40px;
+    padding: 9px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #66513b;
+    border-radius: 8px;
+    background: #21171b;
+    cursor: pointer;
+}
+
+.bms-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 3px;
+    background: #ffcf73;
+}
+
+/* Secondary navigation */
+.bms-subnav {
+    min-height: 48px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.025);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.bms-subnav-left,
+.bms-subnav-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.bms-subnav a {
+    position: relative;
+    padding: 15px 0;
+    color: #d8cbd0;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.25s, text-shadow 0.25s;
+}
+
+.bms-subnav a::after {
+    content: "";
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #ff354b, #ffd675);
+    transition: width 0.25s;
+}
+
+.bms-subnav a:hover {
+    color: #ffe2a0;
+    text-shadow: 0 0 12px rgba(255, 194, 85, 0.2);
+}
+
+.bms-subnav a:hover::after {
+    width: 100%;
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+    .bms-topbar {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 15px 4%;
+    }
+
+    .bms-logo {
+        font-size: 27px;
+    }
+
+    .bms-search {
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+    }
+
+    .bms-actions {
+        margin-left: auto;
+        gap: 10px;
+    }
+
+    .bms-subnav {
+        padding: 0 4%;
+    }
+
+    .bms-subnav-left,
+    .bms-subnav-right {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 650px) {
+    .bms-topbar {
+        min-height: 70px;
+        gap: 12px;
+    }
+
+    .bms-logo {
+        font-size: 25px;
+    }
+
+    .bms-city {
+        max-width: 105px;
+        padding: 9px 6px;
+        font-size: 12px;
+    }
+
+    .bms-signin {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .bms-menu-btn {
+        display: flex;
+    }
+
+    .bms-subnav {
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 5%;
+        border-top: 1px solid rgba(255, 194, 85, 0.2);
+    }
+
+    .bms-subnav.show-menu {
+        display: flex;
+    }
+
+    .bms-subnav-left,
+    .bms-subnav-right {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .bms-subnav a {
+        padding: 13px 5px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .bms-subnav a::after {
+        bottom: 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bms-header *,
+    .bms-header *::before,
+    .bms-header *::after {
+        transition: none !important;
+    }
+}
+
+/* ===== SHINY CITY DROPDOWN ===== */
+.bms-city {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 11px 38px 11px 14px;
+    border: 1px solid #d5a94f;
+    border-radius: 12px;
+    outline: none;
+    color: #ffe5b0;
+    background:
+        linear-gradient(135deg, #332027, #130e14);
+    box-shadow: 0 0 12px rgba(255, 190, 70, 0.12);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bms-city:hover,
+.bms-city:focus {
+    border-color: #ffe08a;
+    box-shadow:
+        0 0 12px rgba(255, 194, 85, 0.4),
+        0 0 24px rgba(255, 194, 85, 0.12);
+    transform: translateY(-2px);
+}
+
+.bms-city option {
+    color: #ffe5b0;
+    background: #211319;
+    padding: 12px;
+}
+
+/* ===== BUBBLE EFFECT FOR ALL NAV LINKS ===== */
+.bms-subnav a {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 12px 13px;
+    border-radius: 12px;
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+.bms-subnav a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border: 1px solid rgba(255, 205, 112, 0);
+    border-radius: 12px;
+    background: radial-gradient(
+        circle at 30% 20%,
+        rgba(255, 255, 255, 0.13),
+        rgba(255, 55, 80, 0.09) 45%,
+        rgba(255, 190, 70, 0.04)
+    );
+    opacity: 0;
+    transform: scale(0.85);
+    transition: all 0.3s ease;
+}
+
+.bms-subnav a:hover {
+    color: #ffe2a0;
+    background: rgba(255, 65, 85, 0.12);
+    box-shadow:
+        0 0 14px rgba(255, 55, 80, 0.16),
+        inset 0 0 10px rgba(255, 205, 112, 0.06);
+    transform: translateY(-3px);
+}
+
+.bms-subnav a:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    border-color: rgba(255, 205, 112, 0.45);
+}
+
+/* Keep the gold underline inside the bubble */
+.bms-subnav a::after {
+    left: 13px;
+    width: 0;
+    bottom: 5px;
+    transition: width 0.3s ease;
+}
+
+.bms-subnav a:hover::after {
+    width: calc(100% - 26px);
+}
+
+/* ===== SIGN IN BUBBLE ===== */
+.bms-signin {
+    border-radius: 14px;
+    background: linear-gradient(
+        120deg,
+        #9e1024,
+        #ff4055,
+        #c5122d,
+        #ff4055
+    );
+    background-size: 200% 200%;
+    box-shadow:
+        0 5px 16px rgba(255, 45, 70, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-position 0.4s ease;
+}
+
+.bms-signin:hover {
+    transform: translateY(-3px) scale(1.04);
+    background-position: 100% 50%;
+    box-shadow:
+        0 7px 25px rgba(255, 45, 70, 0.45),
+        0 0 18px rgba(255, 205, 112, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* ===== SEARCH BUBBLE ===== */
+.bms-search {
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+.bms-search:hover {
+    border-color: rgba(255, 205, 112, 0.65);
+    box-shadow: 0 0 18px rgba(255, 190, 70, 0.15);
+    transform: translateY(-2px);
+}
+
+/* ===== CITY AND MENU BUBBLES ===== */
+.bms-city,
+.bms-menu-btn {
+    border-radius: 12px;
+}
+
+.bms-menu-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bms-menu-btn:hover {
+    transform: scale(1.07);
+    border-color: #ffd675;
+    box-shadow: 0 0 15px rgba(255, 190, 70, 0.3);
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    .bms-city,
+    .bms-subnav a,
+    .bms-subnav a::before,
+    .bms-signin,
+    .bms-search,
+    .bms-menu-btn {
+        transition: none;
+    }
+}

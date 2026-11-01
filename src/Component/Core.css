@@ -1,0 +1,81 @@
+
+.construction-main {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #171323, #30203c);
+    color: white;
+}
+
+.construction-content {
+    max-width: 700px;
+}
+
+.construction-icon {
+    font-size: 65px;
+    margin-bottom: 25px;
+}
+
+.construction-label {
+    color: #e84c9a;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.construction-content h1 {
+    font-size: clamp(35px, 6vw, 58px);
+    margin-bottom: 22px;
+}
+
+.construction-content h1 span {
+    color: #e84c9a;
+}
+
+.construction-description {
+    color: #d0cbd8;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.construction-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 18px;
+    margin-bottom: 30px;
+    border: 1px solid #51415d;
+    border-radius: 30px;
+    color: #eee;
+    font-size: 14px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    background: #e84c9a;
+    border-radius: 50%;
+}
+
+.construction-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 13px 25px;
+    background: #e84c9a;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.construction-btn:hover {
+    background: #c92f7d;
+    transform: translateY(-2px);
+}

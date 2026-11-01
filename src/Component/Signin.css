@@ -1,0 +1,240 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.signin-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 16px;
+    background:
+        radial-gradient(circle at top, rgba(230, 57, 70, 0.2), transparent 40%),
+        linear-gradient(rgba(5, 5, 10, 0.82), rgba(5, 5, 10, 0.94)),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Premium movie ticket */
+.signin-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 35px 30px;
+    border: 2px dashed #dcae48;
+    border-radius: 20px;
+    overflow: hidden;
+    color: #fff;
+    background:
+        linear-gradient(145deg, rgba(38, 29, 25, 0.98), rgba(9, 9, 15, 0.99));
+    box-shadow:
+        0 0 15px rgba(255, 190, 70, 0.35),
+        0 0 40px rgba(230, 57, 70, 0.2),
+        0 25px 70px rgba(0, 0, 0, 0.7);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Hover effect on ticket */
+.signin-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow:
+        0 0 22px rgba(255, 200, 80, 0.65),
+        0 0 55px rgba(230, 57, 70, 0.35),
+        0 30px 80px rgba(0, 0, 0, 0.8);
+}
+
+/* Golden shine at the top */
+.signin-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 65%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.07),
+        rgba(255, 215, 120, 0.13),
+        transparent
+    );
+    transform: skewX(-18deg);
+    transition: left 0.8s ease;
+}
+
+.signin-card:hover::before {
+    left: 140%;
+}
+
+.signin-card h2 {
+    position: relative;
+    margin: -35px -30px 0;
+    padding: 27px 15px;
+    text-align: center;
+    color: #ffe3a0;
+    background: linear-gradient(120deg, #a91d2b, #f04452, #8d1020);
+    border-bottom: 2px solid #e9bd59;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px rgba(255, 220, 120, 0.4);
+}
+
+.signin-subtitle {
+    text-align: center;
+    color: #d2c6b8;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 24px 0 28px;
+}
+
+.signin-card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-card label {
+    margin-bottom: 9px;
+    color: #ffe8bc;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.signin-card input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 21px;
+    border: 1px solid #66513b;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.055);
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.signin-card input::placeholder {
+    color: #a9a2a0;
+}
+
+.signin-card input:focus {
+    border-color: #ffd36a;
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow:
+        0 0 0 3px rgba(255, 190, 70, 0.12),
+        0 0 18px rgba(255, 190, 70, 0.18);
+}
+
+/* Glossy ticket buttons */
+.signin-card button {
+    position: relative;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 13px;
+    border: 1px solid #ffd76d;
+    border-radius: 9px;
+    background: linear-gradient(115deg, #a81024, #ff354b, #c4112c);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(230, 30, 55, 0.25);
+    transition: transform 0.25s, box-shadow 0.25s, filter 0.25s;
+}
+
+.signin-card button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+    box-shadow:
+        0 7px 25px rgba(255, 50, 70, 0.45),
+        0 0 12px rgba(255, 215, 109, 0.2);
+}
+
+.signin-card button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.signin-card button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Secondary buttons */
+.signin-card button[type="button"] {
+    border: 1px solid #756247;
+    background: linear-gradient(120deg, #383039, #24212a);
+    color: #f6e7c9;
+    box-shadow: none;
+}
+
+.signin-card button[type="button"]:hover:not(:disabled) {
+    border-color: #e4bb60;
+    box-shadow: 0 0 14px rgba(255, 190, 70, 0.16);
+}
+
+.signin-card hr {
+    border: none;
+    border-top: 2px dashed #80653c;
+    margin: 20px -30px;
+}
+
+.signin-footer {
+    text-align: center;
+    color: #d2c6b8;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.signin-footer a {
+    color: #ff6675;
+    font-weight: 800;
+    text-decoration: none;
+    transition: color 0.25s, text-shadow 0.25s;
+}
+
+.signin-footer a:hover {
+    color: #ffdf91;
+    text-shadow: 0 0 12px rgba(255, 215, 120, 0.65);
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .signin-page {
+        padding: 24px 14px;
+    }
+
+    .signin-card {
+        padding: 28px 22px;
+    }
+
+    .signin-card h2 {
+        margin: -28px -22px 0;
+        padding: 24px 12px;
+        font-size: 27px;
+    }
+
+    .signin-card hr {
+        margin: 18px -22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .signin-card,
+    .signin-card::before,
+    .signin-card button,
+    .signin-footer a {
+        transition: none;
+    }
+
+    .signin-card:hover {
+        transform: none;
+    }
+}
